@@ -7,6 +7,7 @@
 			E-mail: <input type="email" ng-model="user.email" required /><br />
 			Gender: <input type="radio" ng-model="user.gender" value="male" />male
 			<input type="radio" ng-model="user.gender" value="female" />female<br />
+			<textarea name='ta' ng-model='user.message'></textarea>
 			<input type="button" ng-click="reset()" value="Reset" />
 			<input type="submit" ng-click="update(user)" value="Save" />
 		</form>
