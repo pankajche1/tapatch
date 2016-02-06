@@ -1072,3 +1072,12 @@ body {
 .navbar-collapse:after {
   clear: both;
 }
+.img-desktop {
+  display: none;
+}
+@media (min-width: 768px) {
+  .img-desktop {
+    display: inline;
+    width: 99%;
+  }
+}

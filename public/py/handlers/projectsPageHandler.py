@@ -17,7 +17,7 @@ class ProjectsPageHandler(webapp2.RequestHandler):
         #template = env.get_template('module1/browserify-page.html')
         #self.response.write(template.render(data))
         #self.response.write("projects")
-        obj = [{ 'name': 'Ayuroma Centre a Great project' },
+        obj = [{ 'name': 'Ayuroma Centre (A Business Project)' },
                { 'name': 'Tech Media Experimental' },
                { 'name': 'Blender Animation Project' },
                { 'name': 'Student Teaching program' },
