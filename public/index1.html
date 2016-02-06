@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+<meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+        <title>My App</title>
+
+	<!--<link rel="stylesheet" href="js/lib/bootstrap/dist/css/bootstrap.min.css" type="text/css"></link>-->
+		<!--<<link rel="stylesheet" href="css/main.min.css" type="text/css"></link>-->
+    <script type="text/javascript" src="js/lib/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="js/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="js/lib/plugins/jquery.pankaj-menubar.js"></script>
+    
+     <script type='text/javascript'>
+       
+$(document).ready(function(){
+   //$('#wrapper').printName({'name':'Ram Singh'});
+   //$('#message-panel').printName({'name':'Mohan Singh'});
+   //$('p').appendName({'name':'Mera Naam hai...'});
+   //$('h3').appendName({'name':'Mera Naam hai...'}).css({'color':'red'});
+   //$.fn1();
+   
+   //$('body').append($('#wrapper').text('0'));
+   $.createMenu($('#menu'));
+    
+});//ready function
+ function info(message,id){
+     
+     var color=colors[0];
+     switch(id){
+       case 0:
+       color=colors[0];
+       break;  
+        case 1:
+        color=colors[1];
+       break; 
+       case 2:
+       color=colors[2];
+       break;  
+       case 3:
+       color=colors[3];
+       break;
+       case 4:
+       color=colors[4];
+       break;
+       case 5:
+       color=colors[5];
+       break;
+       default:
+       color=colors[0];
+       break;  
+
+
+      }   
+     $('#message-panel').append("<span style='color:"+color+"'>"+message+"</span><br/>");
+     
+ } 
+ </script>
+
+		<style>
+			body{
+
+
+			}
+	/*		
+			@media screen and (min-width: 320px) {
+				body {
+					background-color:green;
+				}
+			}
+			@media screen and (min-width: 480px) {
+				body {
+					background-color: cyan;
+				}
+			}
+			@media screen and (min-width: 600px) {
+				body {
+					background-color: teal;
+				}
+			}
+			@media screen and (min-width: 768px) {
+				body {
+					background-color: pink;
+				}
+			}
+			@media screen and (min-width: 900px) {
+				body {
+					background-color: blue;
+				}
+			}
+			*/
+
+			.box1{
+
+				width:700px;
+				height:100px;
+				background-color: red;
+
+
+			}
+/*Style 'show menu' label button and hide it by default*/
+.show-menu {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-decoration: none;
+	color: #fff;
+	background: #19c589;
+	text-align: center;
+	padding: 10px 0;
+	display: none;
+}
+
+/*Hide checkbox*/
+input[type=checkbox]{
+	display: none;
+}
+
+/*Show menu when invisible checkbox is checked*/
+input[type=checkbox]:checked ~ #menu{
+	display: block;
+}
+/*Strip the ul of padding and list styling*/
+ul {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	position: absolute;
+	top:0px;
+	left:0px;
+}
+
+/*Create a horizontal list with spacing*/
+li {
+	display:inline-block;
+	float: left;
+	margin-right: 1px;
+	position:relative;
+}
+/*Style for menu links*/
+li a {
+	display:block;
+	min-width:140px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #fff;
+	background: #2f3036;
+	text-decoration: none;
+}
+
+/*Hover state for top level links*/
+li:hover a {
+	background: #19c589;
+}
+
+/*Style for dropdown links*/
+li:hover ul a {
+	background: #f3f3f3;
+	color: #2f3036;
+	height: 40px;
+	line-height: 40px;
+}
+
+/*Hover state for dropdown links*/
+li:hover ul a:hover {
+	background: #19c589;
+	color: #fff;
+}
+/*Hide dropdown links until they are needed*/
+li ul {
+	display: none;
+}
+
+/*Make dropdown links vertical*/
+li ul li {
+	display: block;
+	float: none;
+}
+
+/*Prevent text wrapping*/
+li ul li a {
+	width: auto;
+	min-width: 100px;
+	padding: 0 20px;
+}
+
+/*Display the dropdown on hover*/
+ul li a:hover + .hidden, .hidden:hover {
+	display: block;
+}
+/*Responsive Styles*/
+
+@media screen and (max-width : 760px){
+	/*Make dropdown links appear inline*/
+	ul {
+		position: static;
+		display: none;
+	}
+	/*Create vertical spacing*/
+	li {
+		margin-bottom: 1px;
+	}
+	/*Make all menu links full width*/
+	ul li, li a {
+		width: 100%;
+	}
+	/*Display 'show menu' link*/
+		.show-menu {
+			display:block;
+		}
+}
+        #menu ul{
+            margin:0;
+            padding:0;
+            
+        }
+
+        #menu > ul > li >ul{
+            opacity:0.7;
+        }
+        #menu > ul > li > ul li{
+            
+            color:#eee;   
+        }
+        #menu a{
+
+            color: #777777;
+            text-decoration:none;
+            
+            
+        }
+        #menu > ul > li > ul li:hover{
+            background-color:#000;
+            color:#0f0;   
+        }
+        #menu > ul > li > ul li a:hover{
+            background-color:#000;
+            color:#0f0;   
+        }        
+        .menu-mouse-over{
+            
+            background-color:#eff;
+            color:#f00;
+        }
+        .menu-mouse-out{
+            background-color:#ffa;
+            color:#0f0;
+            
+        }
+ 
+		</style>
+	</head>
+	<body>
+		<!--
+<ul id="menu">
+	<li><a href="#">Home</a></li>
+	<li>
+		<a href="#">About Us</a>
+		<ul class="hidden">
+			<li><a href="#">Who We Are</a></li>
+			<li><a href="#">What We Do</a></li>
+		</ul>
+	</li>
+	<li>
+		<a href="#">Portfolio</a>
+		<ul class="hidden">
+			<li><a href="#">Photography</a></li>
+			<li><a href="#">Web & User Interface Design</a></li>
+			<li><a href="#">Illustration</a></li>
+		</ul>
+	</li>
+	<li><a href="#">News</a></li>
+	<li><a href="#">Contact</a></li>
+</ul>
+-->
+        <div id='menu'>
+            <ul>
+                <li><a href='#'>Home</a></li>
+                <li>Products
+                    <ul>
+                        <li><a href='#'>All Products</a></li>
+                        <li>Aromatherapy Oils
+                            <ul>
+                                <li>Oils with name A
+                                    <ul>
+                                        <li><a href='#'>Write some name 1</a></li>
+                                        <li>Write some name 2
+                                            <ul>
+                                                <li><a href='#'>item here</a></li>
+                                                <li><a href='#'>item there</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href='#'>Oils with name starting with B</a></li>
+                            </ul>
+                        </li>
+                            
+                        <li><a href='#'>Aromatic chemicals are these</a>
+                        <!--
+                           <ul>
+                                <li>Aromatic chemicals with name A</li>
+                                <li>Aromatic chemicals with name starting with B</li>
+                            </ul>
+                        -->
+                        </li>
+                        <li>Carrier Oils are those
+                        
+                            <ul>
+                                <li><a href='#'>Carrier chemicals with name A</a></li>
+                                <li><a href='#'>Carrier chemicals with name starting with B</a></li>
+                            </ul>
+                            
+                        </li>
+                    </ul>
+                </li>
+                <li>Contact Us
+                    <ul>
+                        <li>Office Kanpur
+                            <ul>
+                                <li><a href='#'>Panki</a></li>
+                                <li><a href='#'>Gurudev</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li><a href='#'>Our Delhi Office</a></li>
+                        <li><a href='#'>My USA office</a></li>
+                        <li><a href='#'>We are in Russia</a></li>
+                    </ul>
+                
+                </li>
+                <li><a href='#'>Menu item 4</a></li>
+                <li><a href='#'>Menu item 5</a></li>
+                <li>Menu item 6
+                    <ul>
+                        <li><a href='#'>Sub Menu Item</a></li>
+                        <li>Sub Menu Item
+                            <ul>
+                                <li><a href='#'>Sub Menu Item</a></li>
+                                <li><a href='#'>Sub Menu Item</a></li>
+                                <li><a href='#'>Sub Menu Item</a></li>
+
+                            </ul>
+                        </li>
+                        <li><a href='#'>Sub Menu Item</a></li>
+                        <li><a href='#'>Sub Menu Item</a></li>
+                    
+                    
+                    </ul>
+                </li>
+                
+            </ul>
+        </div>
+
+<label for="show-menu" class="show-menu">Show Menu</label>
+<input type="checkbox" id="show-menu" role="button">
+	<div style="margin-top:100px;">
+		<h2>Panakj</h2>
+</div>
+
+		<!--
+		<div class="box-panel">
+			<div class='box-wrapper'><div class="box1"></div>gray</div>
+			<div class='box-wrapper'><div class="box2"></div>gray light</div>
+			<div class='box-wrapper'><div class="box3"></div>gray lighter</div>
+			<div class='box-wrapper'><div class="box4"></div>gray dark</div>
+			<div class='box-wrapper'><div class="box5"></div>gray darker</div>
+			<div class='box-wrapper'><div class="box6"></div>gray base</div>
+			<div class='box-wrapper'><div class="box7"></div>brand primary</div>
+			<div class='box-wrapper'><div class="box8"></div>brand success</div>
+			<div class='box-wrapper'><div class="box9"></div>brand info</div>
+			<div class='box-wrapper'><div class="box10"></div>brand warning</div>
+			<div class='box-wrapper'><div class="box11"></div>brand danger</div>
+			<div class='box-wrapper'><div><a href="#">This is link</a></div>Link</div>
+		</div>
+		-->
+
+    <div id='message-panel'></div>
+	    </body>
+	    </html>
+

@@ -1,0 +1,11 @@
+<html>
+    <head>
+        <title>{{ title }}</title>
+    </head>
+    <body>
+	    {% include "module1/header.html" %}
+	    {% for mark in marks %}
+	        <p>{{ mark }}</p>
+	    {% endfor%}
+    </body>
+</html>

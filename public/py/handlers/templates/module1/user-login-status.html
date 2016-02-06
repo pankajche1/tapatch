@@ -1,0 +1,22 @@
+{% if isUserLoggedIn == False  %}
+ <div class="panel panel-info">
+	 <div class="panel-heading">Please Login</div>
+	 <div class="panel-body">  
+		 <div><a href="{{ userLink }}">{{ userLinkText }}</a></div>
+	 </div>
+	
+	
+ </div>
+{% else %}
+ <div class="panel panel-success">
+	 <div class="panel-heading">You are our valid user</div>
+	 <div class="panel-body">
+		 <div>{{ userNickName }}</div>
+		 <div><a href="{{ userLink }}">{{ userLinkText }}</a></div>
+	 </div>
+ </div>
+{% endif %}
+
+
+
+

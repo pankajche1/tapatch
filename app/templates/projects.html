@@ -1,0 +1,11 @@
+	
+		     <div class="panel panel-success">
+			     <div class="panel-heading">Projects</div>
+			     <div class="panel-body">
+				     <div ng-if="isLoading" class='progress-bar-wrapper'>
+				         <div class='progress-bar'>Loading...</div>
+				     </div>
+				     <ul><li ng-repeat="project in projects"><% project.name %></li></ul>
+			     </div>
+		     </div>
+

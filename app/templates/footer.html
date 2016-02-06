@@ -1,0 +1,28 @@
+<div class='collapse footer-collapse'>
+    <div class='col-lg-3 col-md-3'>	
+	    <ul>
+		    <li ng-repeat="item in items"><% item.label %></li>
+
+	    </ul>
+    </div>
+    <div class='col-lg-3 col-md-3'>	
+	    <div>
+		    <form ng-show='isFormShow'>
+			    <input type='text'></input>
+			    <br>
+			    <input type='text'></input>
+			    <br>
+			    <input type='text'></input>
+
+			    </form>
+		    <button ng-click="toggle()">Send</button>
+	    </div>
+     
+    </div>
+        <div class='col-lg-3 col-md-3'>	
+     Hi this is footer.
+    </div>
+    <div class='col-lg-3 col-md-3'>	
+     Hi this is footer.
+    </div>
+</div>

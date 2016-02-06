@@ -1,0 +1,20 @@
+{
+  "name": "site3",
+  "description": "A starter project to combine google appengine with python with angularjs by Pankaj",
+  "version": "0.0.0",
+  "homepage": "",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "1.4.x",
+    "angular-mocks": "1.4.x",
+    "jquery": "~2.1.1",
+    "bootstrap": "~3.3.6",
+    "angular-route": "1.4.x",
+    "angular-resource": "1.4.x",
+    "angular-animate": "1.4.x",
+    "requirejs":"latest",
+    "requirejs-domready":"latest",
+    "underscore":"latest"
+  }
+}
