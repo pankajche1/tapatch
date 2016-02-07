@@ -1,18 +1,25 @@
 <div>
 	<h2> Contact Us</h2>
 
-	<div>
-		<form novalidate class="css-form">
-			Name: <input type="text" ng-model="user.name" required /><br />
-			E-mail: <input type="email" ng-model="user.email" required /><br />
-			<input type='password'></input>
-			Gender: <input type="radio" ng-model="user.gender" value="male" />male
-			<input type="radio" ng-model="user.gender" value="female" />female<br />
-			<textarea name='ta' ng-model='user.message'></textarea>
-			<input type="button" ng-click="reset()" value="Reset" />
-			<input type="submit" ng-click="update(user)" value="Save" />
-			
-		</form>
-	</div>
-	
+
+<form>
+    <div class="form-group">
+	    <label for="exampleInputEmail1">Email address</label>
+	    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+   </div>
+   <div class="form-group">
+	   <label for="exampleInputPassword1">Password</label>
+	   <input type="password" class="form-control" id="exampleInputPassword1"
+			   placeholder="Password">
+   </div>
+   <div class="form-group">
+	   <label for="exampleInputFile">File input</label>
+	   <input type="file" id="exampleInputFile">
+		   Example block-level help text here.
+   </div>
+   <div class="checkbox">
+	   <label><input type="checkbox"> Check me out</label>
+   </div>
+   <button type="submit" class="btn btn-default">Submit</button>
+</form>
 </div>
