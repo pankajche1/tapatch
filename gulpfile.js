@@ -122,13 +122,13 @@ gulp.task('watch', function() {
 	gulp.task('less', function() {  
 		  gulp.src('./less/module2/main.less')
 		  .pipe(less())
-		  //.pipe(minifyCSS())
+		  .pipe(minifyCSS())
 		.pipe(rename('main.min.css'))
 		  .pipe(gulp.dest('./public/css/'));
 	});
 	gulp.task('cssmin',function(){
 		gulp.src('./public/css/main.css')
-		//.pipe(minifyCSS())
+		.pipe(minifyCSS())
 		//.pipe(header(banner, {pkg: pkg}))
 		.pipe(rename('main.min.css'))
 		.pipe(gulp.dest( './public/css/' ));

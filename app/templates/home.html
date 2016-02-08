@@ -1,1 +1,11 @@
-<div><% message %></div>
+<div>
+	<h2>Welcome Users and Developers</h2>
+	<h3>Current Topics</h3>
+	<div style='border:1px dotted #558;padding:5px;margin-bottom:5px;' ng-repeat="project in info.projects"> 
+		<h4><% project.title %></h4>
+		<p>Status:<span style='color:green'> <% project.info %></span></p>
+		<p>Writer: <span style='color:teal'><% project.writer %></span></p>
+	
+	</div>
+</div>
+	
