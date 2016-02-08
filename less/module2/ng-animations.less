@@ -1,0 +1,11 @@
+// when the view gets ready first time:
+.main-view.ng-enter{
+
+
+	.transition(~'opacity ease 1s');
+	opacity:0.5;
+}
+//at last when the view is active and ready to be used:
+.main-view.ng-enter.ng-enter-active{
+	opacity:1.0;
+}
