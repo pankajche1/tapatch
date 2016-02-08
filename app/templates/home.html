@@ -1,11 +1,32 @@
 <div>
 	<h2>Welcome Users and Developers</h2>
 	<h3>Current Topics</h3>
-	<div style='border:1px dotted #558;padding:5px;margin-bottom:5px;' ng-repeat="project in info.projects"> 
+	<div ng-if="isLoading" class='progress-bar-wrapper'>
+		<div class='progress-bar'>Loading...</div>
+	</div>
+
+	<!--
+	<input type="search" ng-model="q" placeholder="filter friends..." aria-label="filter friends"/>
+	<div><button ng-click="">Click</button></div>
+	<div><button ng-click="">Click</button></div>
+		-->
+	<div>
+		<!--
+	<div class='animate-repeat' ng-repeat="project in items | filter:q as results"> 
+		<h4><% project.title %></h4>
+	</div>
+	-->
+	
+	<!--<div class='animate-repeat' ng-repeat="project in info.projects"> -->
+	<div class='animate-repeat' ng-repeat="project in info.projects | filter:q as results"> 
+	    <div>
 		<h4><% project.title %></h4>
 		<p>Status:<span style='color:green'> <% project.info %></span></p>
 		<p>Writer: <span style='color:teal'><% project.writer %></span></p>
+	    </div>
 	
+	</div>
+
 	</div>
 </div>
 	

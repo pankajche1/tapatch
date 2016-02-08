@@ -14,6 +14,9 @@ from py.handlers.projectsPageHandler import ProjectsPageHandler as \
                              ProjectsPageHandler
 from py.handlers.contactUsPageHandler import ContactUsPageHandler as \
                              ContactUsPageHandler
+from py.handlers.currentTopicsHandler import CurrentTopicsHandler as \
+                             CurrentTopicsHandler
+
 
 #from modules.module1 import DAO as DAO
 import cgi
@@ -216,6 +219,7 @@ application = webapp2.WSGIApplication([
     ('/projects', ProjectsPageHandler),
     ('/school', SchoolPage),
     ('/contact-us', ContactUsPageHandler),
+    ('/current-topics', CurrentTopicsHandler),
     ('/test1', Handler1)
     ], debug=True)
 
