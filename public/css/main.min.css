@@ -1362,17 +1362,21 @@ select[multiple].input-lg {
     display: inline-block;
   }
   .navbar-nav > li > a {
-    color: #111;
+    color: #115;
     display: block;
     line-height: 56px;
     padding: 0 24px;
     text-decoration: none;
     border-bottom: 4px solid transparent;
+    -webkit-transition: border-bottom-color ease-in-out 0.15s, color ease-out 0.15s;
+    -o-transition: border-bottom-color ease-in-out 0.15s, color ease-out 0.15s;
+    transition: border-bottom-color ease-in-out 0.15s, color ease-out 0.15s;
     font-weight: bold;
   }
   .navbar-nav > li.active > a {
     border-bottom: 4px solid #999;
     color: #999;
+    cursor: default;
   }
   .navbar .navbar-header {
     display: none;
@@ -1380,6 +1384,11 @@ select[multiple].input-lg {
   .navbar-nav > li:hover > a {
     border-bottom: 4px solid green;
     color: green;
+  }
+  .navbar-nav > li.active:hover > a {
+    border-bottom: 4px solid #999;
+    color: #999;
+    cursor: default;
   }
 }
 .navbar-toggle {
