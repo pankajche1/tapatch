@@ -1,16 +1,18 @@
 require('angular');
 require('angular-route');
 require('../public/js/lib/angular-animate/angular-animate.min');
+require('angular-resource');
 
 //var MainController = require('./controllers/main-controller');
 require('./templates');
-var app = angular.module('app', ['ngRoute','ngAnimate','Templates1'], 
+var app = angular.module('app', ['ngRoute','ngResource','ngAnimate','Templates1'], 
 	['$interpolateProvider',function($interpolateProvider){
 		$interpolateProvider.startSymbol('<%');
 		$interpolateProvider.endSymbol('%>');
 }]);
 //console.log('came here2');
 //controllers:
+require('./services');
 require('./controllers');
 require('./directives');
 //app.controller('MainController', ['$scope', MainController]);

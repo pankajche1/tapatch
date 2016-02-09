@@ -11,7 +11,8 @@
   "license": "ISC",
   "browser": {
     "angular": "./node_modules/angular/angular.min.js",
-    "angular-route": "./node_modules/angular-route/angular-route.min.js"
+    "angular-route": "./node_modules/angular-route/angular-route.min.js",
+    "angular-resource": "./public/js/lib/angular-resource/angular-resource.min.js"
   },
   "devDependencies": {
     "browserify": "^13.0.0",
