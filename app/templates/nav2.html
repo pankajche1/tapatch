@@ -11,7 +11,7 @@
 			<a class="navbar-brand" href="#">TaPatch</a>
 		</div><!-- nav bar header -->
 		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" ng-hide="isCollapse">
+		<div class="collapse navbar-collapse navbar-hide-animate" ng-hide="isCollapse">
 			<ul class="nav navbar-nav">
 				<li ng-repeat="item in items" ng-class="{active:item.selected}">
 					<a href="<% item.page %>" ng-click="select(item)"><% item.label %></a>
