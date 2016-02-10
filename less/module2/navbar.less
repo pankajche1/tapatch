@@ -1,4 +1,4 @@
-
+//navbar styling
 /* navbar for mobile first */
 .navbar{
 	& .navbar-default{
@@ -11,22 +11,35 @@
 		//desktop
 		@media (min-width: @grid-float-breakpoint) {
 			height: auto !important; padding-bottom: 0; overflow: visible !important;
-			& > div{ overflow:hidden; padding-bottom:5px; background-color:@container-bg;
-				& > ul{ background-color:@navbar-bg; 
-					.box-shadow(0 2px 4px rgba(0,0,0,0.75)); }
-			}
 		}//desktop
-		//mobile
-		@media (max-width: @grid-float-breakpoint-max) {
-			& > div{ overflow:hidden; padding-bottom:5px;
-				& > ul{ background-color:@navbar-bg; 
-					.box-shadow(0 2px 4px rgba(0,0,0,0.75)); }
-			}
-		}//mobile
-		//}//&.collapse
-		.navbar-nav{
+
+		& > div{ 
+			//mobile:
+			overflow:hidden; padding-bottom:5px;
+			//desktop
+			@media (min-width: @grid-float-breakpoint) {
+				overflow:hidden; padding-bottom:5px; background-color:@container-bg;
+			}//desktop
+			
+		}
+		//}//desktop
+	//}//&.collapse
+		.navbar-nav{//this the ul element
 			margin: 0;
 			padding: 0;
+			//mobile:
+			background-color:@navbar-mobile-bg; 
+			.box-shadow(0 2px 4px @navbar-mobile-collapse-shadow-color);
+			//desktop
+			@media (min-width: @grid-float-breakpoint) {
+				background-color:@navbar-bg; 
+				.box-shadow(0 2px 4px rgba(0,0,0,0.75)); 
+			}//desktop
+			//mobile
+			//@media (max-width: @grid-float-breakpoint-max) {
+			
+			//}//mobile
+			
 			li{
 				list-style-type: none;
 				//for desktop
@@ -36,7 +49,20 @@
 
 			}//li
 			& > li{
+                                //mobile
+				&.item-odd{
+					> a{
+                                            background-color:@navbar-mobile-item-odd-bg;
+					    //desktop
+					    @media (min-width: @grid-float-breakpoint) {
+						    background-color:transparent;
+					    }//desktop
+
+					}
+
+				}
 				& > a{
+							font-weight:bold;
 					color: @navbar-color; display: block; line-height: @navbar-line-height;
 						padding: 0 24px; text-decoration: none;
 						//desktop
@@ -44,7 +70,6 @@
 							display: inline-block; 
 							border-bottom:4px solid transparent;
 							.transition(~"border-bottom-color ease-in-out 0.15s, color ease-out 0.15s");
-							font-weight:bold;
 						}//desktop
 				}//a
 				&:hover{
@@ -88,7 +113,7 @@
 	}//desktop
 	margin:0 -15px;
 	padding:5px 0px;
-	background-color: @navbar-mobile-bg;
+	background-color: @navbar-mobile-header-bg;
 	.navbar-brand{
 		margin:5px 10px;
 		font-size:16px;

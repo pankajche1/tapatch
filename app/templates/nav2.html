@@ -14,7 +14,8 @@
 		<div class="collapse navbar-collapse navbar-hide-animate" ng-hide="isCollapse">
 			<div>
 			<ul class="nav navbar-nav">
-				<li ng-repeat="item in items" ng-class="{active:item.selected}">
+				<li ng-repeat="item in items"
+					ng-class="{active:item.selected, 'item-odd':item.isOdd}">
 					<a href="<% item.page %>" ng-click="select(item)"><% item.label %></a>
 				</li>
 			</ul>

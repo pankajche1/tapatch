@@ -46,6 +46,8 @@ module.exports= [function(){
 			    };
 			    items.push(item);
 			    item.id=items.length;
+			    if(item.id%2===0) item.isOdd=false;
+			    else item.isOdd=true;
 		    };
 	    },//controller
 	    //repeat:false,
@@ -69,7 +71,7 @@ module.exports= [function(){
 
 
 
-		    console.log('in nav2 link');
+		    //console.log('in nav2 link');
 	    },
 	    templateUrl:'/partials/nav2.html'
     };
