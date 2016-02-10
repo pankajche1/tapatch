@@ -1,11 +1,6 @@
-.collapse {
-  //display: none;
-}
-
 
 /* navbar for mobile first */
-
-.navbar {
+.navbar{
 	& .navbar-default{
 		margin:0 -15px;
 	}
@@ -38,26 +33,25 @@
 				@media (min-width: @grid-float-breakpoint) {
 					display: inline-block;
 				}//desktop
+
 			}//li
 			& > li{
 				& > a{
 					color: @navbar-color; display: block; line-height: @navbar-line-height;
-					padding: 0 24px; text-decoration: none;
-					//desktop
-					@media (min-width: @grid-float-breakpoint) {
-						display: inline-block; border-bottom:4px solid transparent;
-						.transition(~"border-bottom-color ease-in-out 0.15s, color ease-out 0.15s");
-						font-weight:bold;
-					}//desktop
+						padding: 0 24px; text-decoration: none;
+						//desktop
+						@media (min-width: @grid-float-breakpoint) {
+							display: inline-block; 
+							border-bottom:4px solid transparent;
+							.transition(~"border-bottom-color ease-in-out 0.15s, color ease-out 0.15s");
+							font-weight:bold;
+						}//desktop
 				}//a
 				&:hover{
 					& > a{
-						//desktop
-						@media (min-width: @grid-float-breakpoint) {
-							border-bottom:4px solid @navbar-navitem-hover-color; 
-							color: @navbar-navitem-hover-color;
-						}//desktop
-					}
+						border-bottom:4px solid @navbar-navitem-hover-color;
+						color: @navbar-navitem-hover-color;
+					}//a
 				}//li:hover
 				&.active{
 					& > a{
@@ -66,6 +60,7 @@
 							border-bottom:4px solid @navbar-navitem-active-color;
 							color:@navbar-navitem-active-color; cursor:default;
 						}//desktop
+
 					}//a
 					&:hover{ 
 						&> a{
@@ -76,12 +71,11 @@
 							}//desktop
 						}
 					}//&> li.active
-				}//&.active
-				}//& > li
-			}//.navbar-nav
-	}//.navbar-collapse
-   
+				}//& active
 
+			}//& > li
+		}//.navbar-nav
+	}//.navbar-collapse
 	/* mobile */
     .navbar-header{
 	//desktop
@@ -100,7 +94,6 @@
 	}
     }//.navbar-header
 
-}//.navbar
 
 // Navbar toggle
 //
@@ -108,29 +101,48 @@
 // JavaScript plugin.
 
 .navbar-toggle {
-  position: relative; float: right; margin-right: @navbar-padding-horizontal; padding: 9px 10px;
+  position: relative;
+  float: right;
+  margin-right: @navbar-padding-horizontal;
+  padding: 9px 10px;
   //.navbar-vertical-align(34px);
   background-color: transparent;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid transparent;
   border-radius: @border-radius-base;
+
   // We remove the `outline` here, but later compensate by attaching `:hover`
   // styles to `:focus`.
   &:focus {
     outline: 0;
   }
+
   // Bars
   .icon-bar {
-    display: block; width: 22px; height: 2px; border-radius: 1px;
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
   }
-  .icon-bar + .icon-bar { margin-top: 4px; }
+  .icon-bar + .icon-bar {
+    margin-top: 4px;
+  }
+
   //desktop
-  @media (min-width: @grid-float-breakpoint) { display: none; }
+  @media (min-width: @grid-float-breakpoint) {
+    display: none;
+  }
 }
+
+}//.navbar
 // Alternate navbars
 // --------------------------------------------------
+
 // Default navbar
 .navbar-default {
+  //background-color: @navbar-default-bg;
+  //border-color: @navbar-default-border;
+
   .navbar-brand {
     color: @navbar-default-brand-color;
     &:hover,
@@ -154,127 +166,12 @@
       background-color: @navbar-default-toggle-icon-bar-bg;
     }
   }
+
+
     
-  }//.navbar-default
+  }//navbar-default
 
 
 
-/*
-//menu toggle button
-.menu-toggle{
-	position: relative;
-	overflow: hidden;
-	margin: 0;
-	padding: 0;
-	width: 96px;
-	height: 96px;
-	font-size: 0;
-	text-indent: -9999px;
-	appearance: none;
-	box-shadow: none;
-	border-radius: none;
-	border: none;
-	cursor: pointer;
-	transition: background 0.3s;
-	//display:none;
-}
-
-.menu-toggle:focus {
-	outline: none;
-}
-.menu-toggle span {
-	display: block;
-	position: absolute;
-	top: 44px;
-	left: 18px;
-	right: 18px;
-	height: 8px;
-	background: white;
-}
-
-.menu-toggle span::before,
-.menu-toggle span::after {
-	position: absolute;
-	display: block;
-	left: 0;
-	width: 100%;
-	height: 8px;
-	background-color: #fff;
-	content: "";
-}
-
-.menu-toggle span::before {
-	top: -20px;
-}
-
-.menu-toggle span::after {
-	bottom: -20px;
-}
-.menu-toggle--rot {
-	background-color: #28aadc;
-}
-
-.menu-toggle--rot span {
-	transition: transform 0.3s;
-}
-
-/* active state, i.e. menu open */
-.menu-toggle--rot.is-active {
-	background-color: #166888;
-}
-
-.menu-toggle--rot.is-active span {
-	transform: rotate(90deg);
-}
-	// by pankaj from here:
-@media screen and (min-width: @screen-phone) {
-
-.menu-toggle{
-	display:block;
-}
 
 
-nav ul li{
-    display: block;
-    //list-style-type: none;
-
-}
-}
-@media screen and (min-width: @screen-tablet) {
-.menu-toggle{
-	display:block;
-}
-nav ul li{
-    display: block;
-    //list-style-type: none;
-
-}
-
-}
-@media screen and (min-width: @screen-desktop) {
-.menu-toggle{
-	display:block;
-}
-
-nav ul li{
-    display: inline-block;
-    //list-style-type: none;
-
-}
-
-}
-@media screen and (min-width: @screen-lg-desktop) {
-
-
-.menu-toggle{
-	display:none;
-}
-nav ul li{
-    display: inline-block;
-    //list-style-type: none;
-
-}
-
-}
-
-*/
