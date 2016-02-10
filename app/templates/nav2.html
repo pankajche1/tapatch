@@ -12,11 +12,13 @@
 		</div><!-- nav bar header -->
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse navbar-hide-animate" ng-hide="isCollapse">
+			<div style='box-shadow:0 2px 1px black;'>
 			<ul class="nav navbar-nav">
 				<li ng-repeat="item in items" ng-class="{active:item.selected}">
 					<a href="<% item.page %>" ng-click="select(item)"><% item.label %></a>
 				</li>
 			</ul>
+			</div>
 			<div ng-transclude></div>
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->

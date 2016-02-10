@@ -1,0 +1,13 @@
+{
+	"issue 1":{
+		"id":"iss1",
+		"name":"",
+		"description":"the box shadow of the collapsing menu bar in not showing in the mobile screen",
+		"fixes":"change z index."
+		"author":"Pankaj Kumar"
+
+
+	}
+
+
+}
