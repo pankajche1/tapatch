@@ -49,8 +49,12 @@
 				}//a
 				&:hover{
 					& > a{
+					    //desktop
+					    @media (min-width: @grid-float-breakpoint) {
+
 						border-bottom:4px solid @navbar-navitem-hover-color;
 						color: @navbar-navitem-hover-color;
+					    }//desktop
 					}//a
 				}//li:hover
 				&.active{
