@@ -1,12 +1,13 @@
 'use-strict()';
 // the service is Countries:
-module.exports=['$rootScope','$scope','Countries', function($rootScope,$scope, Countries){
+module.exports=['$rootScope','$scope','$http', 'Countries','ContactUs', function($rootScope,$scope, $http, Countries, ContactUs){
 		//$scope.projects = [ {'name':'ayuroma'}, {'name':'mediatech'}];// projects list
 		var country =  {};
 		$rootScope.$emit('ContactUsActive', 'Pankaj');
 		// the following {} is not making any effect
 		$scope.isCountriesLoading=false;
 		$scope.user={};
+		var master={};
 		$scope.reset=function(form){
 			$scope.user={'name':'','email':'','state':'','city':'','message':''};
 			$scope.user.country=country;
@@ -17,11 +18,27 @@ module.exports=['$rootScope','$scope','Countries', function($rootScope,$scope, C
 			}
 
 		};//reset
-		$scope.send=function(user){
+		$scope.submit=function(){
 			//$scope.user=user;
+			//ContactUs.query();
+			master=angular.copy($scope.user);
+			sendMessage();
 
 		};//send
+		function sendMessage(){
+			var req = {
+				method: 'POST',
+				url: '/contact-us',
+				headers: {
+					'Content-Type': undefined
+				},
+				data:  master
+			};
 
+			$http(req).then(function(){ console.log('success');}, function(){console.log('error');});
+
+
+		}
 		function fetchCountries(){
 			$scope.isCountriesLoading=true;
 			$scope.countries=Countries.query({},function(){

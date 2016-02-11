@@ -24,6 +24,10 @@ class ContactUsPageHandler(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'application/json'
         self.response.out.write(json.dumps(obj))
 
+    def post(self):
+        print 'here in contact us'
+
+
 
 
 
