@@ -40,15 +40,17 @@
 	opacity:1;
 	max-height:500px;
 }
+// this is used in mobile navbar collapse animation:
 .navbar-hide-animate{
 @media (max-width: @grid-float-breakpoint-max) {
-	.transition(~'max-height linear 0.5s, opacity linear 0.5s');
+	//.transition(~'max-height linear 0.5s, opacity linear 0.5s');
+	.transition(~'max-height linear 0.5s');
 	max-height:1000px;
 	height:auto;
-	opacity:1;
+	//opacity:1;
 	&.ng-hide{
 		max-height:0;
-		opacity:0;
+		//opacity:0;
 	}
   }
 
