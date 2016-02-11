@@ -428,7 +428,20 @@ input[type="checkbox"] {
   height: @input-height-small;
   line-height: @input-height-small;
 }
+//by pankaj for contact us form:
+.contact-us-form {
+  input, textarea {
+   &.ng-invalid.ng-touched{
+  .pform-control-validation(@state-danger-text; @state-danger-text; @state-danger-bg);
+  }
+  &.ng-valid.ng-touched {
+	  .pform-control-validation(@state-success-text; @state-success-text; @state-success-bg);
+  }
 
+  }
+  
+
+}
 // Feedback states
 .has-success {
   .form-control-validation(@state-success-text; @state-success-text; @state-success-bg);
