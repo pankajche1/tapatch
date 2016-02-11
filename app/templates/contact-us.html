@@ -27,14 +27,11 @@
 			   class='control-label'>Country 
 		   <span style="font-weight:normal;color:#999;" ng-show='isCountriesLoading'>(Loading...)</span>
 		   </label>
-    
-	   <select  id="country"  
-			   class="form-control" name="c"  required >
-		   <option ng-repeat="country in countries" value="country.code">
-			   <% country.name %></option>
-	   </select>
 
-
+           <select class="form-control" ng-model="country" ng-options="t.name for t in countries">
+		   <!-- <option value="">(blank)</option> -->
+           </select>
+	   
    </div><!-- country control group -->
 
 
