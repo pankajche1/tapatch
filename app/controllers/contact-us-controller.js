@@ -7,9 +7,14 @@ module.exports=['$rootScope','$scope','Countries', function($rootScope,$scope, C
 		// the following {} is not making any effect
 		$scope.isCountriesLoading=false;
 		$scope.user={};
-		$scope.reset=function(){
+		$scope.reset=function(form){
 			$scope.user={'name':'','email':'','state':'','city':'','message':''};
 			$scope.user.country=country;
+			if(form){
+				form.$setPristine();
+				form.$setUntouched();
+
+			}
 
 		};//reset
 		$scope.send=function(user){
