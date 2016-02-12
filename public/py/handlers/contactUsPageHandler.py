@@ -39,7 +39,7 @@ class ContactUsPageHandler(webapp2.RequestHandler):
             message='mail address not valid'
 
         else:
-            sender_address = "Taptach Support<support@tapach.com>"
+            sender_address = "Taptach Support<admin@tapatch.com>"
             subject = "Thanks for message"
             body='''we have received your mail'''
             if uName == u'yes send my mail':
