@@ -9,7 +9,7 @@ module.exports=['$rootScope','$scope','$http', 'Countries','ContactUs', function
 		$scope.user={};
 		var master={};
 		$scope.reset=function(form){
-			$scope.user={'name':'','email':'','state':'','city':'','message':''};
+			$scope.user={'name':'','email':'','state':'','city':'','message':'','e':''};
 			$scope.user.country=country;
 			if(form){
 				form.$setPristine();
@@ -22,6 +22,8 @@ module.exports=['$rootScope','$scope','$http', 'Countries','ContactUs', function
 			//$scope.user=user;
 			//ContactUs.query();
 			master=angular.copy($scope.user);
+			//master.email=$scope.user.email;//email from the honeypot
+			//console.log('email:'+master.email);
 			sendMessage();
 
 		};//send

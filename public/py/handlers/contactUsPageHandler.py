@@ -30,6 +30,10 @@ class ContactUsPageHandler(webapp2.RequestHandler):
         #print 'uName:'+uName
         body =  json.loads(self.request.body)
         uName = body['name']
+        uEmail = body['e'] # real email
+        uHoneyPotEmail = ''
+        if body.has_key('email'):
+            uHoneyPotEmail = body['email'] # email by robot
         #uName = 'from server'+uName
         emailAddress='pankajche1@gmail.com'
         message='every thing is ok. mail sent'
@@ -42,11 +46,11 @@ class ContactUsPageHandler(webapp2.RequestHandler):
             sender_address = "Taptach Support<admin@tapatch.com>"
             subject = "Thanks for message"
             body='''we have received your mail'''
-            if uName == u'yes send my mail':
+            if uHoneyPotEmail == u'':
                 mail.send_mail(sender_address, emailAddress, subject, body)
                 message += '... and mail sent by admin'
             else:
-                message += '... but mail not sent by admin'
+                message += '... but this was a robot call'
         obj = { 'name': message, 'error':'no' }
         self.response.headers['Content-Type'] = 'application/json'
         self.response.out.write(json.dumps(obj))

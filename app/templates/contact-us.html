@@ -16,14 +16,14 @@
           </div>
 
     <div class="form-group">
-	    <label for="email">Email 
+	    <label for="uEmail">Email 
 		    <span ng-show="form.$submitted || form.uEmail.$touched">
 			    <span ng-show="form.uEmail.$error.required">(Please enter your email)</span>
 			    <span ng-show="form.uEmail.$error.email">(email is not valid)</span>
 				</span>
 	    </label>
-	    <input type="email" class="form-control" id="email" name="uEmail"
-			    ng-model="user.email"  placeholder="Email" required="" >
+	    <input type="email" class="form-control" id="uEmail" name="uEmail"
+			    ng-model="user.e"  placeholder="Email" required="" >
    </div>
     <div class="form-group">
 	    <label for="city">City</label>
@@ -75,7 +75,8 @@
 	   <label><input type="checkbox"> Check me out</label>
    </div>
    -->
-   <input type=email style="display:none;" name="email"></input>
+   <input  ng-model="user.email" id='email' type='email' style="display:none;"
+		   name="email"></input>
    <input type="button" ng-click="reset(form)" value="Reset" />
    <button type="submit" class="btn btn-default">Send</button>
 </form>
