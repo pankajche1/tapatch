@@ -30,12 +30,18 @@ module.exports=['$rootScope','$scope','$http', 'Countries','ContactUs', function
 				method: 'POST',
 				url: '/contact-us',
 				headers: {
-					'Content-Type': undefined
+					'Content-Type': 'json'//undefined
 				},
 				data:  master
 			};
 
-			$http(req).then(function(){ console.log('success');}, function(){console.log('error');});
+			$http(req).then(
+				function(data){ 
+					console.log('success');
+					$scope.fromServer=data.data.name;
+				}, 
+				function(){console.log('error');}
+			);
 
 
 		}
