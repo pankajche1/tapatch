@@ -7,6 +7,7 @@ module.exports=['$rootScope','$scope','$http', 'Countries','ContactUs', function
 		// the following {} is not making any effect
 		$scope.isCountriesLoading=false;
 		$scope.user={};
+		$scope.isDisabled=false;
 		var master={};
 		$scope.reset=function(form){
 			$scope.user={'name':'','email':'','state':'','city':'','message':'','e':''};
@@ -19,6 +20,7 @@ module.exports=['$rootScope','$scope','$http', 'Countries','ContactUs', function
 
 		};//reset
 		$scope.submit=function(){
+			$scope.isDisabled=true;
 			//$scope.user=user;
 			//ContactUs.query();
 			master=angular.copy($scope.user);
@@ -39,10 +41,15 @@ module.exports=['$rootScope','$scope','$http', 'Countries','ContactUs', function
 
 			$http(req).then(
 				function(data){ 
-					console.log('success');
+					//console.log('success');
 					$scope.fromServer=data.data.name;
+					$scope.isDisabled=false;
 				}, 
-				function(){console.log('error');}
+				function(){
+					//console.log('error');
+					$scope.isDisabled=false;
+				
+				}
 			);
 
 
