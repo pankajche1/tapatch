@@ -4,11 +4,11 @@
 
 
 
-	<form novalidate name='form' class='contact-us-form' ng-submit="submit()" >
+	<form novalidate name='myform' class='contact-us-form' ng-submit="submit()" >
     <div class="form-group">
         <label for="nameUser">Name 
-	 <span ng-show="form.$submitted || form.uName.$touched">
-		 <span ng-show="form.uName.$error.required">(Please enter you name)</span>
+	 <span ng-show="myform.$submitted || myform.uName.$touched">
+		 <span ng-show="myform.uName.$error.required">(Please enter you name)</span>
 	</span>
 
 	</label>
@@ -18,9 +18,9 @@
 
     <div class="form-group">
 	    <label for="uEmail">Email 
-		    <span ng-show="form.$submitted || form.uEmail.$touched">
-			    <span ng-show="form.uEmail.$error.required">(Please enter your email)</span>
-			    <span ng-show="form.uEmail.$error.email">(email is not valid)</span>
+		    <span ng-show="myform.$submitted || myform.uEmail.$touched">
+			    <span ng-show="myform.uEmail.$error.required">(Please enter your email)</span>
+			    <span ng-show="myform.uEmail.$error.email">(email is not valid)</span>
 				</span>
 	    </label>
 	    <input type="email" class="form-control" id="uEmail" name="uEmail"
@@ -48,8 +48,8 @@
 
     <div class="form-group">
 	    <label for="message">Message
-		    <span ng-show="form.$submitted || form.uMsg.$touched">
-			    <span ng-show="form.uMsg.$error.required">(Please enter some message)</span>
+		    <span ng-show="myform.$submitted || myform.uMsg.$touched">
+			    <span ng-show="myform.uMsg.$error.required">(Please enter some message)</span>
 				</span>
 
 	    </label>
@@ -78,7 +78,7 @@
    -->
    <input  ng-model="user.email" id='email' type='email' style="display:none;"
 		   name="email"></input>
-   <button type="button" ng-click="reset(form)" class="btn btn-default">Reset</button>
+   <button type="button" ng-click="reset(myform)" class="btn btn-default">Reset</button>
    <button type="submit" ng-class="{'btn':true, 'btn-default':true,'disabled':isDisabled}">Send</button>
 </form>
 <div><% fromServer %></div>

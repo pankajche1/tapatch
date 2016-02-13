@@ -1,6 +1,7 @@
 'use-strict()';
 // the service is Countries:
-module.exports=['$rootScope','$scope','$http', 'Countries','ContactUs', function($rootScope,$scope, $http, Countries, ContactUs){
+module.exports=['$rootScope','$scope','$http', 'Countries','ContactUs',
+	function($rootScope,$scope, $http, Countries, ContactUs){
 		//$scope.projects = [ {'name':'ayuroma'}, {'name':'mediatech'}];// projects list
 		var country =  {};
 		$rootScope.$emit('ContactUsActive', 'Pankaj');
@@ -40,9 +41,16 @@ module.exports=['$rootScope','$scope','$http', 'Countries','ContactUs', function
 			};
 
 			$http(req).then(
-				function(data){ 
+				function(response){ 
 					//console.log('success');
-					$scope.fromServer=data.data.name;
+					if(response.data.error==='true'){
+						$scope.fromServer=''+response.data.info+', error:'+
+						response.data.error;
+					}else{
+						$scope.fromServer=''+response.data.info+', error:'+
+						response.data.error;
+
+					}
 					$scope.isDisabled=false;
 				}, 
 				function(){
