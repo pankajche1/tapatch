@@ -9,6 +9,7 @@ module.exports=['$rootScope','$scope','$http', 'Countries','ContactUs',
 		$scope.isCountriesLoading=false;
 		$scope.user={};
 		$scope.isDisabled=false;
+		$scope.isFormShow=true;
 		var master={};
 		$scope.reset=function(form){
 			$scope.user={'name':'','email':'','state':'','city':'','message':'','e':''};
@@ -20,6 +21,19 @@ module.exports=['$rootScope','$scope','$http', 'Countries','ContactUs',
 			}
 
 		};//reset
+		$scope.backToForm=function(/*form*/){
+			$scope.isFormShow=true;//success
+			$scope.user={'name':'','email':'','state':'','city':'','message':'','e':''};
+			$scope.user.country=country;
+			//but this code block has not effect on working: cause the DOM is created 
+			//fresh. If you put ng-show on template then it is necessary:
+			//if(form){
+				//form.$setPristine();
+				//form.$setUntouched();
+
+			//}
+
+		};
 		$scope.submit=function(){
 			$scope.isDisabled=true;
 			//$scope.user=user;
@@ -47,8 +61,9 @@ module.exports=['$rootScope','$scope','$http', 'Countries','ContactUs',
 						$scope.fromServer=''+response.data.info+', error:'+
 						response.data.error;
 					}else{
-						$scope.fromServer=''+response.data.info+', error:'+
-						response.data.error;
+						//$scope.fromServer=''+response.data.info+', error:'+
+						//response.data.error;
+					        $scope.isFormShow=false;//success
 
 					}
 					$scope.isDisabled=false;

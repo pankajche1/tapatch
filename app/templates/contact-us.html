@@ -1,7 +1,19 @@
 <div>
-	<div  ng-class="{'curtain':true,'curtain-enter':isDisabled}"><div>Sending Message ...</div></div>
+	<div  ng-class="{'sending-note':true,'ng-enter':isDisabled}">
+		<div class="curtain"></div>
+		<div>Sending Message ...</div>
+		
+	</div>
+	<div class='form-container'><!-- main -->
+		<div ng-if="isFormShow===false">
+		    <div> Sending Successful. thanks </div>
+		    <div>
+			<button type="button" ng-click="backToForm(myform)"
+					class="btn btn-default">More Messages</button>
+			</div>
+		</div>
+		<div ng-if="isFormShow===true"> <!-- form wrapper -->
 	<h2> Contact Us</h2>
-
 
 
 	<form novalidate name='myform' class='contact-us-form' ng-submit="submit()" >
@@ -82,4 +94,7 @@
    <button type="submit" ng-class="{'btn':true, 'btn-default':true,'disabled':isDisabled}">Send</button>
 </form>
 <div><% fromServer %></div>
+
+</div><!-- form wrapper -->
+	</div><!-- main -->
 </div>
