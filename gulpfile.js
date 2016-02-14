@@ -14,6 +14,7 @@ var uglify = require('gulp-uglify');
 var CacheBuster = require('gulp-cachebust');
 var cachebust = new CacheBuster();
 var less = require('gulp-less');
+var sass = require('gulp-sass');
 var minifyCSS  = require('gulp-minify-css');  
 var rename     = require('gulp-rename');  
 var header     = require('gulp-header'); 
@@ -136,3 +137,36 @@ gulp.task('watch', function() {
 	
 	
 	});
+
+/////////////////////////////////////////////////////////////////////////////////////
+//
+// runs sass, creates css source maps
+//
+/////////////////////////////////////////////////////////////////////////////////////
+
+gulp.task('scss', ['clean'], function() {
+    return gulp.src('./styles/scss/module2/main.scss')
+        //.pipe(sourcemaps.init())
+        .pipe(sass())
+        //.pipe(cachebust.resources())
+        //.pipe(sourcemaps.write('./maps'))
+        .pipe(gulp.dest('./public/css/'));
+});
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+//
+// runs sass, creates css source maps
+//
+/////////////////////////////////////////////////////////////////////////////////////
+
+gulp.task('build-css', ['clean'], function() {
+    return gulp.src('./styles/*')
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .pipe(cachebust.resources())
+        .pipe(sourcemaps.write('./maps'))
+        .pipe(gulp.dest('./dist'));
+});
+
+
