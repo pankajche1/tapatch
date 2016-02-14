@@ -1,11 +1,25 @@
-	
-		     <div class="panel panel-success">
-			     <div class="panel-heading">Projects</div>
-			     <div class="panel-body">
-				     <div ng-if="isLoading" class='progress-bar-wrapper'>
-				         <div class='progress-bar'>Loading...</div>
-				     </div>
-				     <ul><li ng-repeat="project in projects"><% project.name %></li></ul>
-			     </div>
-		     </div>
+<div class="">
+	<div class="h3">Projects</div>
+	<div class="">
+		<div ng-if="isLoading" class='progress-bar-wrapper'>
+			<div class='progress-bar'>Loading...</div>
+		</div>
+		<div>
+			<div class='panel panel1' ng-repeat="project in projects">
+				<div class='panel-body'>
+				    <div class='pull-left'>
+					    <img src='<% project.image %>'></img>
+				    </div>
+				    <div>
+					    <h4><% project.name %></h4>
+					    <p><% project.description %></p>
+					    <p><a href='<% project.website %>'>website</a></p>
+
+				    </div>
+				</div>
+			</div>
+		
+		</div>
+	</div>
+</div>
 

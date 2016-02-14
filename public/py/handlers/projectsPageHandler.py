@@ -17,15 +17,31 @@ class ProjectsPageHandler(webapp2.RequestHandler):
         #template = env.get_template('module1/browserify-page.html')
         #self.response.write(template.render(data))
         #self.response.write("projects")
+        project1 = {'name': 'Ayuroma Centre (A Business Project)',
+                    'year':'2015',
+                    'description':'web based project for online display of \
+                    of company product',
+                    'image':'images/ayuroma-logo.png',
+                    'website':'http://www.ayuromacentre.com'
+                    }
+        project2 = {'name': 'Ayuroma Centre (A Business Project)',
+                    'year':'2015',
+                    'description':'web based project for online display of \
+                    of company product',
+                    'image':'images/ayuroma-logo.png',
+                    'website':'http://www.ayuromacentre.com'
+                    }
+        projects = [project1]
+        '''
         obj = [{ 'name': 'Ayuroma Centre (A Business Project)' },
                { 'name': 'Tech Media Experimental' },
                { 'name': 'Blender Animation Project' },
                { 'name': 'Student Teaching program' },
                { 'name': 'Employee Management Program' },
                ]
-
+        '''
         self.response.headers['Content-Type'] = 'application/json'
-        self.response.out.write(json.dumps(obj))
+        self.response.out.write(json.dumps(projects))
 
 
 

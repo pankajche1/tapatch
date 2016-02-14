@@ -36,6 +36,16 @@ class CurrentTopicsHandler(webapp2.RequestHandler):
                         'started':'6 Feb 2016',
 						'finished':'-',
 						'status':'pending'
+				},
+                {
+						'title':'Projects Page Development',
+						'info':'Basic functionality and design is complete',
+						'writer':'Pankaj',
+						'started':'14 Feb 2016',
+						'finished':'15 Feb 2016',
+						'status':'done'
+
+
 				}
 
 		]}

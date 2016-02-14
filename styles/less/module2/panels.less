@@ -53,5 +53,22 @@
   .border-bottom-radius((@panel-border-radius - 1));
 }
 
+.panel1{
+  background-color: @panel1-bg;
+  .panel-body{
+	  //container for image:
+	  > div:first-child{
+		  margin:0px 10px 0px 0px;
+		  border:1px solid #fff;
+		  padding:5px;
+	  }
+	  > div:nth-child(2){
+		  > h4{
+			  font-weight:bold;
+			  //border-bottom:1px solid #559;
 
+		  }
+	  }
+  }
+}
 
