@@ -117,18 +117,18 @@ gulp.task('build-js', ['clean'], function() {
 gulp.task('watch', function() {
 	gulp.watch('app/**/*.js', ['browserify']);
 	gulp.watch('./app/templates/**/*.html', ['template']);
-	gulp.watch('.styles/less/**/*.less', ['less']);
+	gulp.watch('./styles/less/**/*.less', ['less']);
 });
 /* Task to compile less */
 	gulp.task('less', function() {  
-		  gulp.src('.styles/less/module2/main.less')
+		  gulp.src('./styles/less/module2/main.less')
 		  .pipe(less())
 		  //.pipe(minifyCSS())
 		.pipe(rename('main.min.css'))
 		  .pipe(gulp.dest('./public/css/'));
 	});
 	gulp.task('cssmin',function(){
-		gulp.src('.styles/less/module2/main.less')
+		gulp.src('./styles/less/module2/main.less')
 		.pipe(less())
 		.pipe(minifyCSS())
 		//.pipe(header(banner, {pkg: pkg}))
