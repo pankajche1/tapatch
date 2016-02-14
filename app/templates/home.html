@@ -21,8 +21,21 @@
 	<div class='animate-repeat' ng-repeat="project in info.projects | filter:q as results"> 
 	    <div>
 		<h4><% project.title %></h4>
-		<p>Status:<span style='color:green'> <% project.info %></span></p>
-		<p>Writer: <span style='color:teal'><% project.writer %></span></p>
+
+		<p><span style='color:#555;font-weight:bold;'>Writer:</span>
+		<span style='color:teal'><% project.writer %></span></p>
+	<p style='padding:5px;background-color:#555;'>
+			<span style='color:#eee;font-weight:bold;'>Date Stated:</span> 
+		<span style='color:cyan'><% project.started %></span>
+		<span style='color:#eee;font-weight:bold;'>&nbsp; &nbsp;&nbsp;&nbsp;Date Finished:</span> 
+		<span style='color:cyan'><% project.finished %></span></p>
+	<p><span style='color:#555;font-weight:bold;'>Current Status: </span>
+		<span ng-if='project.status==="pending"' style='color:red'>Incomplete</span>
+		<span  ng-if='project.status==="done"' style='color:green'>Complete</span>
+		
+		<p>
+		<p><span style='color:#555;font-weight:bold;'>
+				Comments: </span><span style='color:#556;'><% project.info %></span></p>
 	    </div>
 	
 	</div>

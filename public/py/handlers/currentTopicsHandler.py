@@ -21,18 +21,21 @@ class CurrentTopicsHandler(webapp2.RequestHandler):
 			[
 				{
 						'title':'Contact Us Page Development',
-						'info':'The page is being developed',
-						'writer':'Pankaj'
+						'info':'Basic functionality and design is complete',
+						'writer':'Pankaj',
+						'started':'6 Feb 2016',
+						'finished':'14 Feb 2016',
+						'status':'done'
+
+
 				},
 			{
 						'title':'Welcome Page Content Development',
 						'info':'The page is being developed',
-						'writer':'Sandeep Mumbai'
-				},
-			{
-						'title':'Database Development',
-						'info':'the design development is in process',
-						'writer':'Ravi Banglore'
+						'writer':'Sandeep Mumbai',
+                        'started':'6 Feb 2016',
+						'finished':'-',
+						'status':'pending'
 				}
 
 		]}

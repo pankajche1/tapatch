@@ -28,6 +28,7 @@ module.exports=['$rootScope','$scope','$http', function($rootScope,$scope, $http
 			
 			$http.get('/current-topics').success(function(data) {
 				$scope.isLoading=false;
+				//$scope.info = data.projects
 				$scope.info = data;
 			});
 			
