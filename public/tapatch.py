@@ -16,6 +16,9 @@ from py.handlers.contactUsPageHandler import ContactUsPageHandler as \
                              ContactUsPageHandler
 from py.handlers.currentTopicsHandler import CurrentTopicsHandler as \
                              CurrentTopicsHandler
+from py.handlers.servicesHandler import ServicesHandler as \
+                             ServicesHandler
+
 
 
 #from modules.module1 import DAO as DAO
@@ -215,6 +218,7 @@ class AdminPage(webapp2.RequestHandler):
 application = webapp2.WSGIApplication([
     ('/', MainPageHandler),
     ('/products', ProductsPage),
+    ('/services', ServicesHandler),
     ('/admin', AdminPage),
     ('/projects', ProjectsPageHandler),
     ('/school', SchoolPage),

@@ -26,12 +26,22 @@ class MainPageHandler(webapp2.RequestHandler):
             userId = ''
             userNickName = ''
             isUserLoggedIn = False
+        services = [{'heading':'Enterprise Solution',
+            'sub-head':'Our Best Solutions',
+            'description':'we provide best customized and cost efficient software solutions'
+            },
+            {'heading':'Website Development',
+            'sub-head':'Business Support Solutions',
+            'description':'We are experienced in developing advanced systems.'
+            }
+            ]
         data={
             'userLink': userLink,
             'userLinkText': userLinkText,
             'userId': userId,
             'userNickName' : userNickName,
-            'isUserLoggedIn' : isUserLoggedIn
+            'isUserLoggedIn' : isUserLoggedIn,
+            'services' : services 
 
         }
 

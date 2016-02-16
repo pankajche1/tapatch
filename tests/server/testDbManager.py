@@ -6,10 +6,10 @@ import webtest
 from google.appengine.api import memcache
 from google.appengine.ext import ndb
 from google.appengine.ext import testbed
-from modules.module1 import Boy as Boy
-from modules.dbutils.dao import DAO as DAO
+from py.module1 import Boy as Boy
+from py.dbutils.dao import DAO as DAO
 from utils.dbmanager import DbManager as DbManager
-from modules.models.project import Project as Project
+from py.models.project import Project as Project
 
 @unittest.skip('DbManagerTestCase')
 class DbManagerTestCase(unittest.TestCase):

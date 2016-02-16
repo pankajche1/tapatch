@@ -11,7 +11,7 @@ def main(sdk_path, test_path):
         sys.path.insert(0, os.path.join(sdk_path, 'platform/google_appengine'))
     else:
         sys.path.insert(0, sdk_path)
-    sys.path.insert(0, '../public_html/')
+    sys.path.insert(0, '../../public/')
     #print(sys.path)
     # Ensure that the google.appengine.* packages are available
     # in tests as well as all bundled third-party packages.
@@ -29,7 +29,7 @@ def main(sdk_path, test_path):
     # Discover and run tests.
     suite = unittest.loader.TestLoader().discover(test_path)
     unittest.TextTestRunner(verbosity=2).run(suite)
-s
+
 if __name__ == '__main__':
 
     SDK_PATH = '/home/pankaj/Softwares/google_appengine'

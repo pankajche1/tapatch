@@ -1,7 +1,7 @@
 import json
 import datetime
-from modules.module1 import Boy as Boy
-from modules.models.project import Project as Project
+from py.module1 import Boy as Boy
+from py.models.project import Project as Project
 
 class DbManager:
     def __init__(self):
