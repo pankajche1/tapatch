@@ -63,7 +63,7 @@ class DbManager:
     def createUsers(self, num=10):
         for i in range(0,num):
             user = User(name='User '+str(i),
-                    email='user-email-'+str(i)+'@gmail.com')
+                    nickName='user-email-'+str(i)+'@gmail.com')
             #project.name='Project '+str(i)
             #project.created=datetime.datetime.now()
             user.put()

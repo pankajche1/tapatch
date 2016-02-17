@@ -87,8 +87,8 @@ class DbManagerTestCase(unittest.TestCase):
         users = User.query().fetch(10)
         self.assertEqual(10, len(users))
         # test the description:
-        email=users[1].email
-        self.assertEqual(email, 'user-email-1@gmail.com') 
+        nickName=users[1].nickName
+        self.assertEqual(nickName, 'user-email-1@gmail.com') 
 
 
 

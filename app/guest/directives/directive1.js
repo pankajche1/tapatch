@@ -9,7 +9,7 @@ module.exports= [function(){
 	    },
 	    transclude: true,
 	    controller:function($scope, $element){
-		    console.log('in directive1 controller');
+		    //console.log('in directive1 controller');
 		    $scope.var1="val1";
 		    $scope.var2="val2";
 
@@ -20,11 +20,11 @@ module.exports= [function(){
 		    $scope.var2="val2 changed from link fn";
 		    $scope.fn1=function(val){
 		    
-			    console.log('directive1 link fn1()'+val);
+			    //console.log('directive1 link fn1()'+val);
 			    $scope.var1="Pankaj Kumar Lodhi";
 		    
 		    };
-		    console.log('in directive1 link');
+		    //console.log('in directive1 link');
 		    //console.log($scope.project);
 	    },
 	    template:

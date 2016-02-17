@@ -1,28 +1,34 @@
 (function(){
     "use strict()";
-    xdescribe('mobile menu button directive test',function(){
+    fdescribe('navbar directive test',function(){
 	    //var $compile;
-	    beforeEach(module('app'));
+	    beforeEach(module('app-member'));
 	    beforeEach(inject(function(_$compile_,_$rootScope_){
 		    $compile = _$compile_;
 		    $rootScope = _$rootScope_;
 		    scope = $rootScope.$new({});
 	    }));//beforeEach
 	    function createElement(){
-		    element = '<mobilemenu></mobilemenu>'; 
+		    
+		    element = '<pnav>' +
+			    '<navitem label="services1"></navitem>'+
+			    '<navitem label="about us"></navitem>'+
+		    '</pnav>' ;
+		    
 
 		    //scope.projects= [];
 		    element=$compile(element)(scope);
 		    scope.$digest();
 	    }
-	    it('should create proper mobile menu dom',function(){
+	    it('should create proper nav dom',function(){
 		    createElement();
-		    //console.log(element.html());
+		    console.log('here');
+		    console.log(element.html());
 		    //expect(element.find('nav').length).toEqual(0);
 	    });//it
-	    it('should have button',function(){
-		    createElement();
-		    expect(element.find('button').length).toEqual(1);
+	    it('should call the desired fn when anchor is clicked',function(){
+		    //createElement();
+		    //expect(element.find('button').length).toEqual(1);
 		    //element.find('a').triggerHandler('click');
 	    
 	    });//it

@@ -1,6 +1,6 @@
 require('angular');
 require('angular-route');
-require('../public/js/lib/angular-animate/angular-animate.min');
+require('../../public/js/lib/angular-animate/angular-animate.min');
 require('angular-resource');
 
 //var MainController = require('./controllers/main-controller');
@@ -15,6 +15,7 @@ var app = angular.module('app', ['ngRoute','ngResource','ngAnimate','Templates1'
 require('./services');
 require('./controllers');
 require('./directives');
+console.log('in app-guest');
 //app.controller('MainController', ['$scope', MainController]);
 app.config(['$routeProvider',function($routeProvider){
 		$routeProvider.when('/welcome',{

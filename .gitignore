@@ -1,10 +1,9 @@
 # ignore these file and folders:
 /node_modules
 /public/js/lib
-/public/js/main.js
-/public/css/main.css
-/public/css/main.min.css
-/app/templates/alltemplate.js
+/public/js
+/public/css
+/app/**/alltemplate.js
 *.pyc
 *~
 *.swp

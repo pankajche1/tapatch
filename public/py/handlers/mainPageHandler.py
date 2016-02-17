@@ -22,10 +22,10 @@ class MainPageHandler(webapp2.RequestHandler):
             userId = user.user_id()
             userNickName = user.nickname()
             # put the user in site's database:
-            user={'name':'','email':userNickName}
+            user={'nickName':userNickName,'userId':userId}
             response = DAO().saveUser(user)
             isUserLoggedIn = True
-            template = env.get_template('module1/home-page.html')
+            template = env.get_template('member/home.html')
         else:
             userLink = users.create_login_url(self.request.uri)
             userLinkText = 'login'

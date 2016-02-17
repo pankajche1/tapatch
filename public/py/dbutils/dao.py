@@ -40,13 +40,16 @@ class DAO:
 
     def saveUser(self, data):
         response = {'info':'','error':'true','message':''} 
-        user = User(name=data['name'], email=data['email'], level='guest')
+        user = User(nickName=data['nickName'], 
+                userId=data['userId'], level='guest')
+        if data.has_key('name'):
+            user.name = data['name']
         q = User.query()
         users = q.fetch()
         isEmailFound=False
         # check the already existing users:
         for i in range(0, len(users)):
-            if users[i].email == user.email:
+            if users[i].nickName== user.nickName:
                 isEmailFound = True
                 break
         if isEmailFound == True:
