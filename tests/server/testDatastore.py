@@ -85,6 +85,41 @@ class DatastoreTestCase(unittest.TestCase):
         # when user is not logged in can not take data:
         self.assertEqual(10, len(services))
 
+    def testDaoCreateUserFail(self):
+        # already existing users in the db:
+        DbManager().createUsers()
+        # create a new user with the same email:
+        user={'name':'Sunny','email':'user-email-1@gmail.com'}
+        response = DAO().saveUser(user)
+        # it must reject the user save attempt:
+        responseExpected='User with this email already exists.'
+        self.assertEqual(responseExpected, response['message'])
+        # get users:
+        users = DbManager().getUsers()
+        self.assertEqual(10, len(users))
+
+    def testDaoCreateUserSuccess(self):
+        # already existing users in the db:
+        DbManager().createUsers()
+        # create a new user with the same email:
+        user={'name':'Sunny','email':'sunny@gmail.com'}
+        response = DAO().saveUser(user)
+        # it must reject the user save attempt:
+        responseExpected='New User created successfully'
+        self.assertEqual(responseExpected, response['message'])
+        # get users:
+        users = DbManager().getUsers()
+        self.assertEqual(11, len(users))
+        # get the last added user:
+        userTarget = users[10]
+        # assert email:
+        self.assertEqual('sunny@gmail.com', userTarget.email)
+        self.assertEqual('Sunny', userTarget.name)
+
+
+
+
+
 
 
 

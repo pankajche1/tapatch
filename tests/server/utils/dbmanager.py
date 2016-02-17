@@ -3,6 +3,7 @@ import datetime
 from py.module1 import Boy as Boy
 from py.models.project import Project as Project
 from py.models.service import Service as Service
+from py.models.user import User as User
 
 class DbManager:
     def __init__(self):
@@ -59,3 +60,19 @@ class DbManager:
             #project.created=datetime.datetime.now()
             service.put()
  
+    def createUsers(self, num=10):
+        for i in range(0,num):
+            user = User(name='User '+str(i),
+                    email='user-email-'+str(i)+'@gmail.com')
+            #project.name='Project '+str(i)
+            #project.created=datetime.datetime.now()
+            user.put()
+
+    def getUsers(self):
+        ''' gets users list from google data store'''
+        q = User.query()
+        users = q.fetch()
+        return users
+ 
+
+

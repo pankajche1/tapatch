@@ -2,6 +2,7 @@ import os
 import webapp2
 import jinja2
 from google.appengine.api import users
+from py.dbutils.dao import DAO as DAO
 
 loader = jinja2.FileSystemLoader( \
                     os.path.join(os.path.dirname(__file__),'templates'))
@@ -14,18 +15,26 @@ class MainPageHandler(webapp2.RequestHandler):
     def get(self):
         # check if the user is logged in:
         user = users.get_current_user()
+        response = {'info':'','error':'false','message':'user not member'} 
         if user:
             userLink = users.create_logout_url(self.request.uri)
             userLinkText = 'logout'
             userId = user.user_id()
             userNickName = user.nickname()
+            # put the user in site's database:
+            user={'name':'','email':userNickName}
+            response = DAO().saveUser(user)
             isUserLoggedIn = True
+            template = env.get_template('module1/home-page.html')
         else:
             userLink = users.create_login_url(self.request.uri)
             userLinkText = 'login'
             userId = ''
             userNickName = ''
             isUserLoggedIn = False
+            # create template
+            template = env.get_template('module1/main-page.html')
+
         services = [{'heading':'Enterprise Solution',
             'sub-head':'Our Best Solutions',
             'description':'we provide best customized and cost efficient software solutions'
@@ -36,6 +45,7 @@ class MainPageHandler(webapp2.RequestHandler):
             }
             ]
         data={
+                'userInfo':response,
             'userLink': userLink,
             'userLinkText': userLinkText,
             'userId': userId,
@@ -45,7 +55,6 @@ class MainPageHandler(webapp2.RequestHandler):
 
         }
 
-        template = env.get_template('module1/main-page.html')
         #template = env.get_template('module1/browserify-page.html')
         self.response.write(template.render(data))
 

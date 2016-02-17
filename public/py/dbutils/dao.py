@@ -3,6 +3,7 @@ from google.appengine.api import users
 from py.module1 import Boy as Boy
 from py.models.project import Project as Project
 from py.models.service import Service as Service
+from py.models.user import User as User
 
 class DAO:
     def __init__(self):
@@ -36,5 +37,28 @@ class DAO:
         q = Service.query()
         services, nextCursor, more = q.fetch_page(20)
         return services
+
+    def saveUser(self, data):
+        response = {'info':'','error':'true','message':''} 
+        user = User(name=data['name'], email=data['email'], level='guest')
+        q = User.query()
+        users = q.fetch()
+        isEmailFound=False
+        # check the already existing users:
+        for i in range(0, len(users)):
+            if users[i].email == user.email:
+                isEmailFound = True
+                break
+        if isEmailFound == True:
+            response['error']='true'
+            response['message']='User with this email already exists.'
+        else:
+            # create user:
+            user.put()
+            response['error']='false'
+            response['message']='New User created successfully'
+        return response
+
+
 
 

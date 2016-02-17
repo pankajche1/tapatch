@@ -11,6 +11,7 @@ from py.dbutils.dao import DAO as DAO
 from utils.dbmanager import DbManager as DbManager
 from py.models.project import Project as Project
 from py.models.service import Service as Service
+from py.models.user import User as User
 
 #@unittest.skip('DbManagerTestCase')
 class DbManagerTestCase(unittest.TestCase):
@@ -80,6 +81,16 @@ class DbManagerTestCase(unittest.TestCase):
         this text for description for the service.
         '''
         self.assertEqual(txt1, txt2)
+
+    def testCreateUsers(self):
+        DbManager().createUsers()
+        users = User.query().fetch(10)
+        self.assertEqual(10, len(users))
+        # test the description:
+        email=users[1].email
+        self.assertEqual(email, 'user-email-1@gmail.com') 
+
+
 
 
 
