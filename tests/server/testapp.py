@@ -11,7 +11,7 @@ from py.handlers.servicesHandler import ServicesHandler as \
                              ServicesHandler
 
 
-#@unittest.skip('skipping')
+@unittest.skip('AppTest Case')
 class AppTest(unittest.TestCase):
     def setUp(self):
         # First, create an instance of the Testbed class.
@@ -31,6 +31,10 @@ class AppTest(unittest.TestCase):
         app = webapp2.WSGIApplication([('/',MainPageHandler),('/services',ServicesHandler)])
         # wrap the app with WebTest's AppTest:
         self.testApp=webtest.TestApp(app)
+
+    def tearDown(self):
+        self.testbed.deactivate()
+
 
     # test the handler:
     @unittest.skip('Test Main Page Handler')

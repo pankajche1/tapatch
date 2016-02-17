@@ -8,6 +8,7 @@ from py.module1 import Boy as Boy
 from py.dbutils.dao import DAO as DAO
 from utils.dbmanager import DbManager as DbManager
 from py.models.project import Project as Project
+from py.models.service import Service as Service
 
 class DatastoreTestCase(unittest.TestCase):
     def setUp(self):
@@ -67,6 +68,22 @@ class DatastoreTestCase(unittest.TestCase):
         projects=q.fetch()
         self.assertEqual(1, len(projects))
         self.assertEqual('aProject', projects[0].name)
+
+    def testDaoSaveService(self):
+        data={'name':'web develop','description':'this service is to create web'}
+        DAO().saveService(data)
+        q = Service.query()
+        services=q.fetch()
+        self.assertEqual(1, len(services))
+        self.assertEqual('web develop', services[0].name)
+
+    def testDaoGetServices(self):
+        DbManager().createCompanyServices()
+        services = DAO().getServices()
+        if len(services) > 0:
+            self.assertEqual('Service 0', services[0].name)
+        # when user is not logged in can not take data:
+        self.assertEqual(10, len(services))
 
 
 

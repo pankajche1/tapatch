@@ -2,6 +2,7 @@ import json
 import datetime
 from py.module1 import Boy as Boy
 from py.models.project import Project as Project
+from py.models.service import Service as Service
 
 class DbManager:
     def __init__(self):
@@ -39,4 +40,22 @@ class DbManager:
             #project.name='Project '+str(i)
             #project.put()
             '''
-
+    def createCompanyServices(self, num=10):
+        txt='''
+        this text for description for the service.
+        '''
+        for i in range(0,num):
+            '''
+            if i%2 == 0:
+                websites = []
+            elif i%3 == 0:
+                websites = ['web'+str(i),'web'+str(i+1)]
+            else:
+                websites = ['web'+str(i)]
+            '''
+            service = Service(name='Service '+str(i),
+                              description=txt)
+            #project.name='Project '+str(i)
+            #project.created=datetime.datetime.now()
+            service.put()
+ 

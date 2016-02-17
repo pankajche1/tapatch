@@ -10,8 +10,9 @@ from py.module1 import Boy as Boy
 from py.dbutils.dao import DAO as DAO
 from utils.dbmanager import DbManager as DbManager
 from py.models.project import Project as Project
+from py.models.service import Service as Service
 
-@unittest.skip('DbManagerTestCase')
+#@unittest.skip('DbManagerTestCase')
 class DbManagerTestCase(unittest.TestCase):
     def setUp(self):
         # First, create an instance of the Testbed class.
@@ -30,11 +31,13 @@ class DbManagerTestCase(unittest.TestCase):
     def tearDown(self):
         self.testbed.deactivate()
 
+    @unittest.skip('DbManager testCreateBoys')
     def testCreateBoys(self):
         # creates 10 boys by default:
         DbManager().createBoys()
         self.assertEqual(10, len(Boy.query().fetch(10)))
 
+    @unittest.skip('DbManager testCreateProjects')
     def testCreateProjects(self):
         DbManager().createProjects()
         projects = Project.query().fetch(10)
@@ -66,6 +69,18 @@ class DbManagerTestCase(unittest.TestCase):
         i am writing this text for description
         '''
         self.assertEqual(txt1, txt2)
+
+    def testCreateServices(self):
+        DbManager().createCompanyServices()
+        services = Service.query().fetch(10)
+        self.assertEqual(10, len(services))
+        # test the description:
+        txt1=services[0].description
+        txt2='''
+        this text for description for the service.
+        '''
+        self.assertEqual(txt1, txt2)
+
 
 
 
