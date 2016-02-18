@@ -338,7 +338,10 @@ gulp.task('build-js', ['clean'], function() {
         .pipe(gulp.dest('./public/js/'));
 });
 
-
+/**
+*
+* a common watch for all
+*/
 gulp.task('watch', function() {
 	//guest module:
 	gulp.watch('app/guest/**/*.js', ['browserify-guest-dev']);
@@ -380,28 +383,32 @@ gulp.task('watch-admin-b', function() {
 
 
 /* Task to compile less */
-	gulp.task('less', ['less-compile', 'cachebust-css']);  
-	gulp.task('less-compile', function() {  
+	//gulp.task('less', ['less-compile']);  
+	gulp.task('less', function() {  
+
 		var filename = 'main.min-'+getStamp()+'.css';
+		del(['./public/css/main.min-*.css']);
 		  gulp.src('./styles/less/module2/main.less')
 		  .pipe(less())
-		  //.pipe(minifyCSS())
+		  .pipe(minifyCSS())
 		  .pipe(rename(filename))
-		//.pipe(cachebust.resources())
 		  .pipe(gulp.dest('./public/css/'));
-		return gulp.src('./public/py/handlers/templates/**/*.html')
+		gulp.src('./public/py/handlers/templates/**/*.html')
 		.pipe(replace(/main.min-([0-9]*).css/g, filename))
 		.pipe(gulp.dest('./public/py/handlers/templates/'));
 	
 	});
 	gulp.task('cssmin',function(){
-		gulp.src('./styles/less/module2/main.less')
-		.pipe(less())
-		.pipe(minifyCSS())
-		//.pipe(header(banner, {pkg: pkg}))
-		.pipe(rename('main.min.css'))
-		//.pipe(cachebust.resources())
-		.pipe(gulp.dest( './public/css/' ));
+		var filename = 'main.min-'+getStamp()+'.css';
+		del(['./public/css/main.min-*.css']);
+		  gulp.src('./styles/less/module2/main.less')
+		  .pipe(less())
+		  .pipe(minifyCSS())
+		  .pipe(rename(filename))
+		  .pipe(gulp.dest('./public/css/'));
+		gulp.src('./public/py/handlers/templates/**/*.html')
+		.pipe(replace(/main.min-([0-9]*).css/g, filename))
+		.pipe(gulp.dest('./public/py/handlers/templates/'));
 	
 	
 	});
