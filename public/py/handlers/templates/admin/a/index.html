@@ -12,7 +12,7 @@
        <link rel="stylesheet" href="css/main.min-201602183840.css" type="text/css"></link>
 
        <!--<script src='js/lib/angular-animate/angular-animate.js'> </script>--> 
-	<script src="/js/main-admin-a.js?201602180127"></script>
+	<script src="/js/main-admin-a.js?20160218503"></script>
 	
 	<script> 
 		var services={{ services|safe }}; 
@@ -39,7 +39,9 @@
 <html>
         <body>
 		<!-- header -->
+	    {% include "common/header.html" %}
 		<!-- nav bar -->
+	    {% include "admin/a/navbar.html" %}
 	<div  class='container content-main'>
      <div class='row'>	
 	     <div class='col-lg-8 col-md-7'>	
