@@ -23,9 +23,11 @@ class MainPageHandler(webapp2.RequestHandler):
             userNickName = user.nickname()
             # put the user in site's database:
             user={'nickName':userNickName,'userId':userId}
+            # check what type of user he is:
             response = DAO().saveUser(user)
             isUserLoggedIn = True
-            template = env.get_template('member/home.html')
+            #template = env.get_template('member/index.html')
+            template = env.get_template('admin/a/index.html')
         else:
             userLink = users.create_login_url(self.request.uri)
             userLinkText = 'login'
@@ -33,7 +35,7 @@ class MainPageHandler(webapp2.RequestHandler):
             userNickName = ''
             isUserLoggedIn = False
             # create template
-            template = env.get_template('module1/main-page.html')
+            template = env.get_template('guest/index.html')
 
         services = [{'heading':'Enterprise Solution',
             'sub-head':'Our Best Solutions',

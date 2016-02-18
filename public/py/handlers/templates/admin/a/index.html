@@ -1,18 +1,18 @@
-<html lang="en" ng-app='app'>
+<html lang="en" ng-app='app-admin-a'>
  
     <head>
 	    <meta http-equiv="content-type" content="text/html; charset=utf-8" ></meta>
 	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,
 			    user-scalable=no"></meta>
 
-        <title>Tapatch Info Solutions</title>
+        <title>Tapatch Info Solutions :: Admin Level A Home</title>
        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"></link>
        <!--<link rel="stylesheet" href="js/lib/bootstrap/dist/css/bootstrap.min.css" type="text/css"></link>-->
 
-       <link rel="stylesheet" href="css/main.min.css" type="text/css"></link>
+       <link rel="stylesheet" href="css/main.min.css?2016021826" type="text/css"></link>
 
        <!--<script src='js/lib/angular-animate/angular-animate.js'> </script>--> 
-	<script src="/js/main-guest.js"></script>
+	<script src="/js/main-admin-a.js?201602180127"></script>
 	
 	<script> 
 		var services={{ services|safe }}; 
@@ -39,9 +39,7 @@
 <html>
         <body>
 		<!-- header -->
-	    {% include "module1/header.html" %}
 		<!-- nav bar -->
-	    {% include "module1/navbar2.html" %}
 	<div  class='container content-main'>
      <div class='row'>	
 	     <div class='col-lg-8 col-md-7'>	
@@ -50,35 +48,10 @@
 	     </div><!-- col-md-6 -->
 	     <div class='col-lg-4 col-md-5'>	
 		<!-- side bar -->
-		{% include "module1/sidebar-right.html" %}
 	     </div><!-- col-md-6 -->
 	</row><!-- row  -->
 	
 </div><!-- container for main content-->
-
-	<!--  <div class='col-md-6'>	-->
-  <!-- notification to user -->
-	    
-    <!--   {% include "module1/user-login-status.html" %} -->
-	
-<!--	</div> main row class -->
-<!--
-<div  style="line-height:0;">
-	<div style="background-color:green;">Pankaj</div>
-	<div style="background-color:green;">Arpit</div>
-	<div style="background-color:green;">Sudha</div>
-	<div style="background-color:green;">Hema</div>
-
-	</div>
-	<hr/>
-<div>
-<input type='checkbox' ng-model='isDetailShow' />
-    <div ng-init="isDetailShow=true"> Basic Informations </div>
-    <div ng-if='isDetailShow'> Detailed Informations come here</div>
-    <button ng-click="isDetailShow=!isDetailShow">Toggle</button>
-</div>
--->
-
 </div><!-- container for main content-->
 <!-- footer section -->
 	<div  class='container'>
