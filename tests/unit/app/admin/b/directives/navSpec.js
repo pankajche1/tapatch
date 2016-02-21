@@ -1,8 +1,8 @@
 (function(){
     "use strict()";
-    describe('navbar directive test',function(){
+    fdescribe('navbar directive test',function(){
 	    //var $compile;
-	    beforeEach(module('app-member'));
+	    beforeEach(module('app-admin-b'));
 	    beforeEach(inject(function(_$compile_,_$rootScope_){
 		    $compile = _$compile_;
 		    $rootScope = _$rootScope_;
@@ -22,7 +22,6 @@
 	    }
 	    it('should create proper nav dom',function(){
 		    createElement();
-		    console.log('here');
 		    console.log(element.html());
 		    //expect(element.find('nav').length).toEqual(0);
 	    });//it

@@ -6,7 +6,8 @@ module.exports = function (config) {
                 //logLevel: 'config.LOG_DEBUG',
 		frameworks: ['jasmine'],
 		files: [
-            'public/js/main-member.js',
+            //'public/js/main-member.js',
+            'public/js/main-admin-b.js',
             'node_modules/angular-mocks/angular-mocks.js',
             'tests/unit/**/*.js'
 		],

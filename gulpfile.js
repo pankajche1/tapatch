@@ -20,6 +20,7 @@ var rename     = require('gulp-rename');
 var header     = require('gulp-header'); 
 var replace     = require('gulp-replace'); 
 var notify     = require('gulp-notify'); 
+require('gulp-bash-completion')(gulp);
 //build datestamp for cache busting
 var getStamp = function() {
 	var myDate = new Date();
@@ -34,6 +35,8 @@ var getStamp = function() {
 
 	return myFullDate;
 };
+//test the task in separate file:
+gulp.task('task1',require('./gulp-tasks/task1')(gulp));
 /////////////////////////////////////////////////////////////////////////////////////
 //
 // cleans the build output
@@ -69,25 +72,8 @@ gulp.task('clean-member', function () {
  */
 // cache busting
 //browserify makes this file: 'main-guest.js'
-gulp.task('build-guest-prod',[],function(){
-	var filename = 'main-guest'+getStamp()+'.js';
-	//delete any such file like main-guest.js type:
-	del([ 'public/js/main-guest*.js' ]);
-	// browserify the file for guest module:
-	browserify('./app/guest/app.js')
-	// bundles it and creates a file called main.js
-	.bundle()
-	.pipe(source(filename))
-	.pipe(gulp.dest('./public/js/'));
-	// cache bust on the html page script tag:
-	//gulp.src('./public/py/handlers/templates/**/*.html')
-	//.pipe(replace(/main-guest([0-9]*).js/g, filename))
-	//.pipe(gulp.dest('./public/py/handlers/templates/'));
-	gulp.src('./public/py/handlers/templates/guest/index.html')
-	//.pipe(replace(/main-guest.js\?([0-9]*)/g, filename))
-	.pipe(replace(/main-guest([0-9]*).js(\?*[0-9]*)/g, filename))
-	.pipe(gulp.dest('./public/py/handlers/templates/guest'));
-});
+gulp.task('guest-js-prod',[],
+	require('./gulp-tasks/guest-js-prod')(gulp, getStamp,del, browserify, source, replace));
 // prod mode and dev mode
 // in prod mode you don't do cache busting cz in local browser u can do ctrl+f5 to load no cache.,
 // but in dev mode you can use file?bust kind of thing to avoid ctrl+f5 things
@@ -458,4 +444,45 @@ gulp.task('scss', ['clean'], function() {
 });
 
 */
+gulp.task('t1', function(){
+	//console.log('in task 1');
+	var i; var str=''; for(i=0;i<30000;i++){ str+='p '; }
+});
+gulp.task('t3', function(){
+	//console.log('in task 3');
+	var i; var str=''; for(i=0;i<500;i++){ str+='p '; }
+});
+gulp.task('t4', function(){
+	//console.log('in task 4');
+	var i; var str=''; for(i=0;i<200;i++){ str+='p '; }
+});
+gulp.task('t5', ['t1','t3','t4'],function(){
+	//console.log('in task 5');
+	var i; var str=''; for(i=0;i<20;i++){ str+='p '; }
+});
+gulp.task('t6',[], function(cb){
+	//console.log('in task 1');
+	var i; var str=''; for(i=0;i<1000;i++){ str+='p '; }
+	cb();
+});
+gulp.task('t7',['t6'], function(cb){
+	//console.log('in task 3');
+	var i; var str=''; for(i=0;i<500;i++){ str+='p '; }
+	cb();
+});
+gulp.task('t8',['t7'], function(cb){
+	//console.log('in task 4');
+	var i; var str=''; for(i=0;i<200;i++){ str+='p '; }
+	cb();
+});
+gulp.task('t9', ['t6','t7','t8'],function(){
+	//console.log('in task 5');
+	var i; var str=''; for(i=0;i<20;i++){ str+='p '; }
+});
 
+gulp.task('t2', function(cb){
+
+	console.log('in task 2');
+	var err = false;
+	cb(err);
+});
