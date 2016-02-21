@@ -4,6 +4,7 @@ from py.module1 import Boy as Boy
 from py.models.project import Project as Project
 from py.models.service import Service as Service
 from py.models.user import User as User
+from py.dbutils.dao import DAO as DAO
 
 class DbManager:
     def __init__(self):
@@ -61,12 +62,12 @@ class DbManager:
             service.put()
  
     def createUsers(self, num=10):
-        for i in range(0,num):
-            user = User(name='User '+str(i),
-                    nickName='user-email-'+str(i)+'@gmail.com')
-            #project.name='Project '+str(i)
-            #project.created=datetime.datetime.now()
-            user.put()
+       ''' creates 10 members of the site by default
+       '''
+       for i in range(0,num):
+            data = {'nickName':'user-email-'+str(i)+'@gmail.com',
+                    'userId':'User'+str(i),'name':'User'+str(i)}
+            DAO().saveUser(data)
 
     def getUsers(self):
         ''' gets users list from google data store'''

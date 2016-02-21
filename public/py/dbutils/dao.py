@@ -44,6 +44,8 @@ class DAO:
                 userId=data['userId'], level='guest')
         if data.has_key('name'):
             user.name = data['name']
+        if data.has_key('level'):
+            user.level = data['level']
         q = User.query()
         users = q.fetch()
         isEmailFound=False

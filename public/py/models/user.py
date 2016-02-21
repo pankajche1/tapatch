@@ -15,7 +15,7 @@ class User(ndb.Model):
     '''
     name = ndb.StringProperty(indexed=False)
     userId = ndb.StringProperty(indexed=False)
-    nickName = ndb.StringProperty(indexed=False)
+    nickName = ndb.StringProperty(indexed=True)
     email = ndb.StringProperty(indexed=False)
     created = ndb.DateTimeProperty(indexed=False, auto_now_add=True)
     edited = ndb.DateTimeProperty(indexed=False,auto_now=True)
